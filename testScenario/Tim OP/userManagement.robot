@@ -154,3 +154,23 @@ Ubah User Management
     And edit Field    ${randNumber}    08xxxxxxxxxx    ${replaceNumb}
     And user click button (parent view)    Simpan
     # And click alert    Ya
+
+user ubah User Management with format email invalid
+    Given User Go To Detail User Management
+    Then click icon ubah user management
+    And edit Field    ${randomStr}    Masukkan email user    ${email}
+    And show error message    Email harus memiliki @ dan domain.
+    
+user ubah User Management with format No Handphone invalid
+    Given User Go To Detail User Management
+    Then click icon ubah user management
+    And edit Field    12345    08xxxxxxxxxx    ${replaceNumb}
+    And show error message    No. handphone harus diawali dengan 08
+
+user ubah User Management with No Handphone has been registered
+    Given User Go To Detail User Management
+    Then click icon ubah user management
+    And edit Field    08123456789    08xxxxxxxxxx    ${replaceNumb}
+    And user click button (parent view)    Simpan
+    And click alert    Ya
+    And show error message    No. handphone sudah terdaftar
