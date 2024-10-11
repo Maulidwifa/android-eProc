@@ -61,15 +61,13 @@ user add user management
 
 # Form User Management
 user input Nama user management
-    Generate Simple Random Name
-    Generate Random Phone Number
-    Generate Random Email
+    Get all random
     Set Global Variable    ${nameUser}    ${randomStr}
     input text (EditText)    ${randomStr}     Masukkan nama user
     
-user input text (EditText)
-    [Arguments]    ${text}    ${locEditext}
-    input text (EditText)    ${text}    ${locEditext}
+# user input text (EditText)
+#     [Arguments]    ${text}    ${locEditext}
+#     input text (EditText)    ${text}    ${locEditext}
 
 user input wrong format email
     ${loc}    Loc Parent EditText    Masukkan email user

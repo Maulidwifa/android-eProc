@@ -2,6 +2,7 @@
 Resource        ../../pom/Tim OP/userManagementPage.robot
 Resource        ../config/openApp.robot
 Resource        ../pom/generalFunction.robot
+Resource        ../../pom/Tim OP/detailUserManagementPage.robot
 
 
 *** Keywords ***
@@ -133,6 +134,7 @@ Click Tidak alert Batal Tambah User
     And user click element    ${arrowBack} 
     And click alert    Tidak
     
+# Detail User Management
 User Go To Detail User Management
     Given user go to User Management page
     When Go to detail User Management
@@ -142,3 +144,13 @@ User Delete User Management
     And page User Management
     And Scroll elementss
     Then Alert Delete User Management    Ya
+
+Ubah User Management
+    Given User Go To Detail User Management
+    Then click icon ubah user management
+    And edit Field    ${randomStr}    Masukkan nama user    ${nameUserManagement}
+    And edit Field    ${randomStr}    Masukan jabatan user    ${jabatan}
+    And edit Field    ${randomEmail}    Masukkan email user    ${email}
+    And edit Field    ${randNumber}    08xxxxxxxxxx    ${replaceNumb}
+    And user click button (parent view)    Simpan
+    # And click alert    Ya

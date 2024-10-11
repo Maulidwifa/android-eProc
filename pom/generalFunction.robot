@@ -15,6 +15,11 @@ Loc Parent EditText
     ${loc}    Set Variable    xpath=//android.widget.TextView[@text="${text}"]/parent::android.widget.EditText
     RETURN    ${loc}
     
+Loc EditText
+    [Arguments]    ${text}
+    ${loc}    Set Variable    xpath=//android.widget.EditText[@text="${text}"]
+    RETURN    ${loc}
+
 Generate Simple Random Name
     ${name}    Evaluate    ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=5)) + ' ' + ''.join(random.choices('ABCDEFGHIJKLMNOPQRSTUVWXYZ', k=8))    modules=random
     Set Global Variable    ${randomStr}    ${name}
@@ -47,6 +52,10 @@ input text (EditText)
     [Arguments]    ${rand_text}    ${locEdit}
     ${loc}    Loc Parent EditText    ${locEdit}
     Input Text    ${loc}    ${rand_text}
+
+user input text (EditText)
+    [Arguments]    ${text}    ${locEditext}
+    input text (EditText)    ${text}    ${locEditext}
 
 input password form user management
     [Arguments]    ${password}    ${locatorText}
@@ -84,3 +93,17 @@ alert pop up show
 
 scroll down per card section
     Swipe    ${504}    ${1060}    ${504}    ${543}
+
+Get all random
+    Generate Simple Random Name
+    Generate Random Phone Number
+    Generate Random Email
+
+# Function Edit Text (EditText)
+edit Field (Edit Text)
+    [Arguments]    ${text}    ${locEdit}    ${locEditText}
+    ${loc}    Loc EditText    ${locEditText}
+    user click element    ${loc}
+    Clear Text    ${loc}
+    Get all random
+    user input text (EditText)    ${text}     ${locEdit}
