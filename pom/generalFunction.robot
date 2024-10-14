@@ -42,7 +42,6 @@ Generate Random Phone Number
     Set Global Variable    ${randNumber}    ${random_number}
 
 Random Get Name User Management
-    # ${elements} =    Get Webelements    xpath=//android.widget.TextView[@text="Nomor handphone"]
     ${len}    Get Length    xpath=//android.widget.TextView[@text="Nomor handphone"]
     ${randomIndex}    Evaluate    random.randint(0, ${len} - 1)
     RETURN    ${random_index}

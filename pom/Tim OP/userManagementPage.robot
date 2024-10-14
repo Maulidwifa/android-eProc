@@ -65,10 +65,6 @@ user input Nama user management
     Set Global Variable    ${nameUser}    ${randomStr}
     input text (EditText)    ${randomStr}     Masukkan nama user
     
-# user input text (EditText)
-#     [Arguments]    ${text}    ${locEditext}
-#     input text (EditText)    ${text}    ${locEditext}
-
 user input wrong format email
     ${loc}    Loc Parent EditText    Masukkan email user
     Input Text    ${loc}    ${randomStr}
@@ -132,7 +128,6 @@ Get Detail Text User Management
     ${random}=    Evaluate    random.randint(1, 3)    modules=random
     Set Global Variable    ${indexUser}    ${random}
     Log    Random : ${random}
-    # Sleep    4
     ${len}    Get Length    xpath=(//android.view.View[@content-desc="Image"])[${random}]/parent::android.view.View/android.widget.TextView
     FOR    ${counter}    IN RANGE    1    ${len}
         IF    '${counter}' == '1'
