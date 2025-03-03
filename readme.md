@@ -34,10 +34,10 @@ Error: Either specify it explicitly with --sdk_root= or move this package into i
  5. make devices ready  
     - enable developer mode  
     - make USB debugging on  
-  
+ 
 install (appium driver install uiautomator2)  
 pip install Appium-Python-Client  
-  
+
 command liat apk = adb shell dumpsys window windows  
   
 appPackage = com.seribusaudara.quotation.dev  
